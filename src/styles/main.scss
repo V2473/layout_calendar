@@ -15,39 +15,36 @@ h1 {
   display: flex;
   width: ((100px + 1) * 7);
   flex-wrap: wrap;
+
+  & div {
+    background-color: #eee;
+    width: 100px;
+    height: 100px;
+    margin: 0 1px 1px 0;
+    border: solid 1px black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    line-height: 100px;
+    text-align: center;
+    transition: all 0.5s;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: pink;
+      margin-top: -20px;
+    }
+  }
+
   @for $x from 1 through 31 {
-    div:nth-child(#{$x}) {
-      &::after {
-        content: "#{$x}";
-      }
+    div:nth-child(#{$x}):after {
+      content: "#{$x}";
     }
   }
 }
 
 @for $i from 28 through 31 {
-  .calendar-#{$i} {
-    div:nth-child(-n + #{$i}) {
-      background-color: #eee;
-      width: 100px;
-      height: 100px;
-      margin: 0 1px 1px 0;
-      border: solid 1px black;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 40px;
-      line-height: 100px;
-      text-align: center;
-      transition: all 0.5s;
-      box-sizing: border-box;
-
-      &:hover {
-        background-color: pink;
-        margin-top: -20px;
-      }
-    }
-
-    div:nth-child(n + #{$i+1}) {
-      display: none;
-    }
+  .calendar-#{$i} div:nth-child(n + #{$i+1}) {
+    display: none;
   }
 }
 
