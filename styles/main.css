@@ -19,7 +19,7 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 721px;
+  width: 707px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
   .calendar div:nth-child(1)::after {
