@@ -54,9 +54,6 @@ h1 {
 .calendar-30 div:nth-child(n + 31) {
   display: none; }
 
-.calendar-31 div:nth-child(n + 32) {
-  display: none; }
-
 .calendar-mon::before {
   content: "";
   width: 0px; }
