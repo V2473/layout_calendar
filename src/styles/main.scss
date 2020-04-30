@@ -1,13 +1,14 @@
-$weekdays: (tue: 1, wed: 2, thu: 3, fri: 4, sat: 5, sun: 6);
 $day-side-length: 100px;
 $day-margin: 1px;
-$days-of-week: 7;
 $animation-speed: 0.5s;
 $border-width: 1px;
 $border-color: black;
 $text-size: 40px;
 $background-color: #eee;
 $hover-color: pink;
+
+$WEEKDAYS-COUNT: 7;
+$WEEKDAYS-NAME: (tue: 1, wed: 2, thu: 3, fri: 4, sat: 5, sun: 6);
 
 html,
 body {
@@ -24,7 +25,7 @@ h1 {
 
 .calendar {
   display: flex;
-  width: (($day-side-length + $day-margin) * $days-of-week);
+  width: (($day-side-length + $day-margin) * $WEEKDAYS-COUNT);
   flex-wrap: wrap;
   counter-reset: dayCount;
 
@@ -64,7 +65,7 @@ h1 {
   }
 }
 
-@each $day, $num in $weekdays {
+@each $day, $num in $WEEKDAYS-NAME {
   .calendar-#{$day}::before {
     width: ($num * $day-side-length) + ($num * $day-margin);
   }
