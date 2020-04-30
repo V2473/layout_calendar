@@ -3,6 +3,11 @@ $day-side-length: 100px;
 $day-margin: 1px;
 $days-of-week: 7;
 $animation-speed: 0.5s;
+$border-width: 1px;
+$border-color: black;
+$text-size: 40px;
+$background-color: #eee;
+$hover-color: pink;
 
 html,
 body {
@@ -28,14 +33,14 @@ h1 {
   }
 
   & div {
-    background-color: #eee;
+    background-color: $background-color;
     width: $day-side-length;
     height: $day-side-length;
     margin: 0 $day-margin $day-margin 0;
-    border: solid 1px black;
+    border: solid $border-width $border-color;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
-    line-height: 100px;
+    font-size: $text-size;
+    line-height: $day-side-length;
     text-align: center;
     transition: all $animation-speed;
     box-sizing: border-box;
@@ -47,8 +52,8 @@ h1 {
     }
 
     &:hover {
-      background-color: pink;
-      margin-top: -20px;
+      background-color: $hover-color;
+      margin-top: -($day-side-length / 5);
     }
   }
 }
@@ -58,8 +63,6 @@ h1 {
     display: none;
   }
 }
-
-$weekdays: (tue: 1, wed: 2, thu: 3, fri: 4, sat: 5, sun: 6);
 
 @each $day, $num in $weekdays {
   .calendar-#{$day}::before {
