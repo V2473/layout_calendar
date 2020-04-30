@@ -23,6 +23,8 @@ h1 {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   counter-reset: dayCount; }
+  .calendar::before {
+    content: ""; }
   .calendar div {
     background-color: #eee;
     width: 100px;
@@ -55,27 +57,21 @@ h1 {
   display: none; }
 
 .calendar-tue::before {
-  content: "";
   width: 101px; }
 
 .calendar-wed::before {
-  content: "";
   width: 202px; }
 
 .calendar-thu::before {
-  content: "";
   width: 303px; }
 
 .calendar-fri::before {
-  content: "";
   width: 404px; }
 
 .calendar-sat::before {
-  content: "";
   width: 505px; }
 
 .calendar-sun::before {
-  content: "";
   width: 606px; }
 
 /*# sourceMappingURL=main.css.map */
