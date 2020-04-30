@@ -15,6 +15,7 @@ h1 {
   display: flex;
   width: ((100px + 1) * 7);
   flex-wrap: wrap;
+  counter-reset: dayCount;
 
   & div {
     background-color: #eee;
@@ -29,15 +30,14 @@ h1 {
     transition: all 0.5s;
     box-sizing: border-box;
 
+    &:after {
+      counter-increment: dayCount;
+      content: counter(dayCount);
+    }
+
     &:hover {
       background-color: pink;
       margin-top: -20px;
-    }
-  }
-
-  @for $x from 1 through 31 {
-    div:nth-child(#{$x}):after {
-      content: "#{$x}";
     }
   }
 }
