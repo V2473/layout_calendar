@@ -1,60 +1,46 @@
 $day-side-length: 100px;
-$day-margin: 1px;
+$day-gap: 1px;
 $animation-speed: 0.5s;
 $border-width: 1px;
 $border-color: black;
-$text-size: 40px;
+$font-size: 40px;
 $background-color: #eee;
 $hover-color: pink;
 
 $WEEKDAYS-COUNT: 7;
-$WEEKDAYS-NAME: (tue: 1, wed: 2, thu: 3, fri: 4, sat: 5, sun: 6);
-
-html,
-body {
-  margin: 0;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+$WEEKDAYS-NAME: (tue: 2, wed: 3, thu: 4, fri: 5, sat: 6, sun: 7);
 
 h1 {
   display: none;
 }
 
 .calendar {
-  display: flex;
-  width: (($day-side-length + $day-margin) * $WEEKDAYS-COUNT);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat($WEEKDAYS-COUNT, $day-side-length);
+  grid-auto-rows: $day-side-length;
+  gap: $day-gap $day-gap;
+  place-content: center center;
+  place-items: stretch stretch;
   counter-reset: dayCount;
-
-  &::before {
-    content: "";
-  }
-
-  & div {
-    background-color: $background-color;
-    width: $day-side-length;
-    height: $day-side-length;
-    margin: 0 $day-margin $day-margin 0;
+  
+  div {
     border: solid $border-width $border-color;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: $text-size;
-    line-height: $day-side-length;
     text-align: center;
+    line-height: $day-side-length;
+    background-color: $background-color;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: $font-size;
     transition: all $animation-speed;
-    box-sizing: border-box;
     cursor: pointer;
 
-    &:after {
+    &:before {
       counter-increment: dayCount;
       content: counter(dayCount);
     }
-
+    
     &:hover {
       background-color: $hover-color;
-      margin-top: -($day-side-length / 5);
+      transform: translateY(-($day-side-length / 5));
     }
   }
 }
@@ -66,7 +52,9 @@ h1 {
 }
 
 @each $day, $num in $WEEKDAYS-NAME {
-  .calendar-#{$day}::before {
-    width: ($num * $day-side-length) + ($num * $day-margin);
+  .calendar-#{$day} {
+    div:first-child {
+      grid-column: $num;
+    }
   }
 }
