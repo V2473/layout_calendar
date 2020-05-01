@@ -1,51 +1,31 @@
-html,
-body {
-  margin: 0;
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center; }
-
 h1 {
   display: none; }
 
 .calendar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 707px;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(7, 100px);
+  grid-auto-rows: 100px;
+  gap: 1px 1px;
+  place-content: center center;
+  place-items: stretch stretch;
   counter-reset: dayCount; }
-  .calendar::before {
-    content: ""; }
   .calendar div {
-    background-color: #eee;
-    width: 100px;
-    height: 100px;
-    margin: 0 1px 1px 0;
     border: solid 1px black;
+    text-align: center;
+    line-height: 100px;
+    background-color: #eee;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 40px;
-    line-height: 100px;
-    text-align: center;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
     cursor: pointer; }
-    .calendar div:after {
+    .calendar div:before {
       counter-increment: dayCount;
       content: counter(dayCount); }
     .calendar div:hover {
       background-color: pink;
-      margin-top: -20px; }
+      -webkit-transform: translateY(-20px);
+              transform: translateY(-20px); }
 
 .calendar-28 div:nth-child(n + 29) {
   display: none; }
@@ -56,22 +36,22 @@ h1 {
 .calendar-30 div:nth-child(n + 31) {
   display: none; }
 
-.calendar-tue::before {
-  width: 101px; }
+.calendar-tue div:first-child {
+  grid-column: 2; }
 
-.calendar-wed::before {
-  width: 202px; }
+.calendar-wed div:first-child {
+  grid-column: 3; }
 
-.calendar-thu::before {
-  width: 303px; }
+.calendar-thu div:first-child {
+  grid-column: 4; }
 
-.calendar-fri::before {
-  width: 404px; }
+.calendar-fri div:first-child {
+  grid-column: 5; }
 
-.calendar-sat::before {
-  width: 505px; }
+.calendar-sat div:first-child {
+  grid-column: 6; }
 
-.calendar-sun::before {
-  width: 606px; }
+.calendar-sun div:first-child {
+  grid-column: 7; }
 
 /*# sourceMappingURL=main.css.map */
