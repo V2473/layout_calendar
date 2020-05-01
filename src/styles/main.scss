@@ -10,6 +10,13 @@ $hover-color: pink;
 $WEEKDAYS-COUNT: 7;
 $WEEKDAYS-NAME: (tue: 2, wed: 3, thu: 4, fri: 5, sat: 6, sun: 7);
 
+body,
+html {
+  margin: 0;
+  height: 100%;
+  display: grid;
+}
+
 h1 {
   display: none;
 }
