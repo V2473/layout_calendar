@@ -1,7 +1,9 @@
-body,
-html {
+html,
+body {
+  height: 100%; }
+
+body {
   margin: 0;
-  height: 100%;
   display: grid; }
 
 h1 {
@@ -13,7 +15,6 @@ h1 {
   grid-auto-rows: 100px;
   gap: 1px 1px;
   place-content: center center;
-  place-items: stretch stretch;
   counter-reset: dayCount; }
   .calendar div {
     border: solid 1px black;
