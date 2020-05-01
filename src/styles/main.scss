@@ -17,7 +17,7 @@ body {
 
 body {
   margin: 0;
-  display: grid;
+  position: relative;
 }
 
 h1 {
@@ -25,12 +25,17 @@ h1 {
 }
 
 .calendar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: repeat($WEEKDAYS-COUNT, $day-side-length);
   grid-auto-rows: $day-side-length;
   gap: $day-gap $day-gap;
   place-content: center center;
   counter-reset: dayCount;
+  margin: $border-width;
   
   div {
     border: solid $border-width $border-color;
