@@ -37,7 +37,7 @@ h1 {
       counter-increment: dayCount;
       content: counter(dayCount);
     }
-    
+
     &:hover {
       background-color: $hover-color;
       transform: translateY(-($day-side-length / 5));
@@ -51,10 +51,10 @@ h1 {
   }
 }
 
-@each $day, $num in $WEEKDAYS-NAME {
-  .calendar-#{$day} {
+@each $week-day, $week-day-num in $WEEKDAYS-NAME {
+  .calendar-#{$week-day} {
     div:first-child {
-      grid-column: $num;
+      grid-column: $week-day-num;
     }
   }
 }
