@@ -29,18 +29,17 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
   display: grid;
   grid-template-columns: repeat($WEEKDAYS-COUNT, $day-side-length);
   grid-auto-rows: $day-side-length;
   gap: $day-gap $day-gap;
-  place-content: center center;
   counter-reset: dayCount;
   margin: $border-width;
   
   div {
+    display: grid;
     border: solid $border-width $border-color;
-    text-align: center;
-    line-height: $day-side-length;
     background-color: $background-color;
     font-family: Arial, Helvetica, sans-serif;
     font-size: $font-size;
@@ -50,6 +49,7 @@ h1 {
     &:before {
       counter-increment: dayCount;
       content: counter(dayCount);
+      margin: auto;
     }
 
     &:hover {
