@@ -4,18 +4,24 @@ body {
 
 body {
   margin: 0;
-  display: grid; }
+  position: relative; }
 
 h1 {
   display: none; }
 
 .calendar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: repeat(7, 100px);
   grid-auto-rows: 100px;
   gap: 1px 1px;
   place-content: center center;
-  counter-reset: dayCount; }
+  counter-reset: dayCount;
+  margin: 1px; }
   .calendar div {
     border: solid 1px black;
     text-align: center;
